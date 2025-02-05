@@ -48,8 +48,6 @@ class PracticeWebFormPage(BasePage):
         file_path = get_root_path(self.locator.UPLOAD_FOLDER_PATH + '/' + path)
         self.element_is_visible(self.locator.CHOOSE_FILE_BUTTON).send_keys(file_path)
 
-        # self.element_is_clickable(self.locator.UPLOAD_BUTTON).click()
-
     def uploaded_file_result(self):
         return self.element_is_visible(self.locator.CHOOSE_FILE_BUTTON).get_attribute("value").split("\\")[-1]
 
@@ -64,6 +62,3 @@ class PracticeWebFormPage(BasePage):
         element = self.element_is_clickable(self.locator.INPUT_CITY)
         element.send_keys(city)
         element.send_keys(Keys.ENTER)
-
-
-

@@ -102,4 +102,3 @@ class TestAddWebTable:
         page.clean_search_field()
         time.sleep(6)
         assert page.is_employee_deleted(email)
-

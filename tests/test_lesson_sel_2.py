@@ -11,7 +11,7 @@ url = "https://the-internet.herokuapp.com/"
 @pytest.mark.skip
 def test_google(driver):
     driver.get(url)
-    assert driver.current_url.__eq__(url)
+    assert driver.current_url == url
 
 
 def test2(driver):

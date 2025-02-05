@@ -1,5 +1,4 @@
 class WebTablesLocators:
-
     ADD_BUTTON = ("css selector", "#addNewRecordButton")
     TYPE_TO_SEARCH_FIELD = ("css selector", "#searchBox")
     FIRST_NAME_COLUMN = "//*[text()='First Name']"
@@ -11,12 +10,8 @@ class WebTablesLocators:
     MODAL_WINDOW = ("css selector", "#registration-form-modal")
     MODAL_WINDOW_CLOSE_BUTTON = ("xpath", "//*[text()='×']")
     EMPTY_SPACE = ("css selector", ".fade modal show")
-    # WEB_TABLE = ("xpath", "//*[@class='rt-tr -odd']/*[@class='rt-td']")
     WEB_TABLE = ("css selector", "div.rt-tr.-odd")
     FORM_EDIT_BUTTON = ("xpath", "//div[text()='cierra@example.com']/following-sibling::*//*[@id='edit-record-1']")
-
-
-
 
     # ++++++++++++++++++++++++++++++ web form locators ++++++++++++++++++++++++++++++
 

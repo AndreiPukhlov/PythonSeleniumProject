@@ -1,15 +1,11 @@
 import time
-
 import pytest
-
-from assertions import Assertions
 from data.urls.url import Urls
 from pages.hovers_page import HoversPage
 
 
 class TestHover:
     url = Urls()
-    assertion = Assertions()
 
     @pytest.mark.parametrize("user_id", [1, 2, 3])
     def test_user_1_view_profile(self, driver, user_id):

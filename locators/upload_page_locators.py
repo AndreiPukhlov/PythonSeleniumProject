@@ -1,5 +1,4 @@
 class UploadPageLocators:
-
     CHOOSE_FILE_BUTTON = ("css selector", "#file-upload")
     HEADER_TEXT = ("xpath", "//div[@class='example']//h3")
     UPLOADED_FILE_NAME_LOCATOR = ("css selector", "#uploaded-files")

@@ -34,7 +34,7 @@ class TestWebForm:
         page.enter_email(gd[3])
         page.choose_gender(gender)
         page.enter_mobile_number(mobile)
-        # page.pick_birthday(dob)
+        # page.pick_birthday(dob) # TODO AP:    ADD DOB PICKER METHOD
         page.scroll_to_element()
         page.enter_subject(gd[5])
         page.check_hobby(hobby)
