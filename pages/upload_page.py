@@ -1,4 +1,4 @@
-import time
+
 
 from functions import get_root_path
 from locators.upload_page_locators import UploadPageLocators

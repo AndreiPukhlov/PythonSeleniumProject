@@ -52,7 +52,7 @@ def ensure_screenshot_dir():
 
 # pytest --html=report.html --self-contained-html
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
-def pytest_runtest_makereport(item, call):
+def pytest_runtest_makereport(item):
     """Hook to take a screenshot on test failure."""
     outcome = yield
     report = outcome.get_result()

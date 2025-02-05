@@ -81,4 +81,4 @@ def test_get():
     pprint(var.status_code, indent=4)
     # pprint(var.json(), indent=4)
     assert var.json().__eq__(jsn)
-    assert var.json()["locale"].__eq__({'country': 'us', 'attr': 'en-US', 'textDirection': 'ltr'})
+    assert var.json()["locale"] == {'country': 'us', 'attr': 'en-US', 'textDirection': 'ltr'}

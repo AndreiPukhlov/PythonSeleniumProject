@@ -3,7 +3,6 @@ from pages.base_page import BasePage
 
 
 class ButtonsPage(BasePage):
-
     locators = ButtonsLocators()
 
     def double_click_button(self):
@@ -25,5 +24,3 @@ class ButtonsPage(BasePage):
 
     def get_dynamic_click_result_text(self):
         return self.element_is_visible(self.locators.DYNAMIC_CLICK_MESSAGE).text
-
-

@@ -1,5 +1,4 @@
 class WebFormsLocators:
-
     PRACTICE_FORM_BUTTON = ("xpath", "//*[text()='Practice Form']")
     FIRST_NAME = ("css selector", "#firstName")
     LAST_NAME = ("css selector", "#lastName")
@@ -20,5 +19,3 @@ class WebFormsLocators:
     INFO_RESULT = ("xpath", "//tbody/tr/td")
     UPLOAD_FOLDER_PATH = "data/test_data/demoqa_testdata/upload_demoqa"
     a = "//label[text()='Male']Sports"
-
-

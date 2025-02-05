@@ -11,4 +11,3 @@ class TestDownload:
         page.open()
         assert driver.current_url == download_page_url
         page.download_file()
-
