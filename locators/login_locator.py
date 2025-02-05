@@ -1,0 +1,6 @@
+url2 = "https://www.saucedemo.com/"
+home_page = "https://www.saucedemo.com/inventory.html"
+username_field = "#user-name"
+password_field = "#password"
+login_button = "#login-button"
+app_logo = "//*[text()='Swag Labs']"
