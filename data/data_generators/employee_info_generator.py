@@ -1,9 +1,7 @@
 import random
-
-from dateutil.utils import today
-
 import functions
 from datetime import date
+
 
 class EmployeeIngoGenerator:
 
@@ -62,5 +60,3 @@ class EmployeeIngoGenerator:
 
         day = random.randint(1, days_in_month[month])
         return year, month, day
-
-
