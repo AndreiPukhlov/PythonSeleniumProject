@@ -20,7 +20,7 @@ def driver(request, name="chr"):
         chrome_options.add_argument("--window-size=1920,1080")
         # chrome_options.add_argument("--incognito")
         chrome_options.add_argument("--disable-cache")
-        # chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--headless")
         chrome_options.add_argument("--ignore-certificate-errors")
         chrome_options.page_load_strategy = "normal"  # normal eager
 

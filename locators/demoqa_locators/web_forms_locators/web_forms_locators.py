@@ -5,6 +5,7 @@ class WebFormsLocators:
     EMAIL = ("css selector", "#userEmail")
     MOBILE = ("css selector", "#userNumber")
     DOB_INPUT = ("css selector", "#dateOfBirthInput")
+    # YEAR_PICKER = ("xpath", "//*[@class='react-datepicker__year-select']/option[@value='1900']")
     SELECT_DOB_DAY = ("xpath", "(//div[text()='6'])[1]")
     SELECT_DOB_MONTH = ("css selector", ".react-datepicker__month-select")
     SELECT_DOB_YEAR = ("css selector", ".react-datepicker__year-select")
@@ -18,4 +19,5 @@ class WebFormsLocators:
     SUBMIT_BUTTON = ("css selector", "button#submit")
     INFO_RESULT = ("xpath", "//tbody/tr/td")
     UPLOAD_FOLDER_PATH = "data/test_data/demoqa_testdata/upload_demoqa"
+    CLOSE_BUTTON = ("css selector", "#closeLargeModal")
     a = "//label[text()='Male']Sports"
