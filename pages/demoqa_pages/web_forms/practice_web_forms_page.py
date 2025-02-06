@@ -78,3 +78,15 @@ class PracticeWebFormPage(BasePage):
         self.element_is_visible(month_locator).click()
         self.element_is_visible(day_locator).click()
 
+    def get_required_fields_color(self):
+        locator = ("xpath", f"//label[text()='Male']")
+
+        first_name_field_color = self.element_is_visible(self.locator.FIRST_NAME).value_of_css_property("color")
+        last_name_field_color = self.element_is_visible(self.locator.LAST_NAME).value_of_css_property("color")
+        gender_field_color = self.element_is_visible(locator).value_of_css_property("color")
+        mobile_field_color = self.element_is_visible(self.locator.MOBILE).value_of_css_property("color")
+        return first_name_field_color, last_name_field_color, gender_field_color, mobile_field_color
+
+
+
+

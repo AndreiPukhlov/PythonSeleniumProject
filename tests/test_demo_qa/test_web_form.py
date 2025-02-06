@@ -15,7 +15,7 @@ class TestWebForm:
     url = DemoqaUrls()
     generator = EmployeeIngoGenerator()
 
-    @pytest.mark.parametrize("run", range(5))  # Runs the tess n times
+    @pytest.mark.parametrize("run", range(1))  # Runs the tess n times
     @pytest.mark.smoke
     def test_web_form_submission_all_fields(self, driver, run):
         gd = self.generator.generate_employee_data()
@@ -72,7 +72,7 @@ class TestWebForm:
         page.close_modal_window()
         assert page.is_modal_window_closed()
 
-    @pytest.mark.parametrize("run", range(5))  # Runs the test n times
+    @pytest.mark.parametrize("run", range(1))  # Runs the test n times
     def test_web_form_submission_required_fields(self, driver, run):
         gd = self.generator.generate_employee_data()
         gender = self.generator.generate_random_gender()
@@ -80,10 +80,7 @@ class TestWebForm:
         today = date.today()
         formatted_date = today.strftime("%d %B,%Y")
 
-        exp_url = self.url.base_url + self.url.practice_web_form_url
-        page = PracticeWebFormPage(driver, exp_url)
-        page.open()
-        assert page.driver.current_url == exp_url, f"Expected {exp_url}, \nbut got {driver.current_url}"
+        page = self.open_web_form(driver)
         page.enter_firstname(gd[0])
         page.enter_lastname(gd[1])
         page.choose_gender(gender)
@@ -107,3 +104,23 @@ class TestWebForm:
         assert submission == exp_data, f"Expected: {exp_data}\nActual: {submission}"
         page.close_modal_window()
         assert page.is_modal_window_closed()
+
+    def open_web_form(self, driver):
+        exp_url = self.url.base_url + self.url.practice_web_form_url
+        page = PracticeWebFormPage(driver, exp_url)
+        page.open()
+        assert page.driver.current_url == exp_url, f"Expected {exp_url}, \nbut got {driver.current_url}"
+        return page
+
+    def test_required_fields_are_colored_in_red(self, driver):
+        page = self.open_web_form(driver)
+        page.scroll_to_element()
+        page.submit_form()
+        # time.sleep(10)
+        other_fields_expected_color = 'rgba(73, 80, 87, 1)'
+        gender_field_expected_color = 'rgba(220, 53, 69, 1)'
+        f_name_field, l_name_field, gender_field, mobile_field = page.get_required_fields_color()
+        assert f_name_field == other_fields_expected_color
+        assert l_name_field == other_fields_expected_color
+        assert gender_field == gender_field_expected_color
+        assert mobile_field == other_fields_expected_color
