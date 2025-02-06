@@ -6,31 +6,32 @@ from selenium.webdriver.webkitgtk.webdriver import WebDriver
 
 class BasePage:
 
-    def __init__(self, driver: WebDriver, url: str):
+    def __init__(self, driver: WebDriver, url: str, timeout: int = 25):
         self.driver = driver
         self.url = url
         self.action = ActionChains(self.driver)
+        self.timeout = timeout
 
     def open(self):
         self.driver.get(self.url)
 
-    def element_is_visible(self, locator, timeout=20):
-        return wait(self.driver, timeout=timeout).until(EC.visibility_of_element_located(locator))
+    def element_is_visible(self, locator, timeout=None):
+        return wait(self.driver, timeout or self.timeout).until(EC.visibility_of_element_located(locator))
 
-    def elements_are_visible(self, locator, timeout=20):
-        return wait(self.driver, timeout=timeout).until(EC.visibility_of_all_elements_located(locator))
+    def elements_are_visible(self, locator, timeout=None):
+        return wait(self.driver, timeout or self.timeout).until(EC.visibility_of_all_elements_located(locator))
 
-    def element_is_clickable(self, locator, timeout=20):
-        return wait(self.driver, timeout=timeout).until(EC.element_to_be_clickable(locator))
+    def element_is_clickable(self, locator, timeout=None):
+        return wait(self.driver, timeout or self.timeout).until(EC.element_to_be_clickable(locator))
 
-    def element_is_invisible(self, locator, timeout=20):
-        return wait(self.driver, timeout=timeout).until(EC.invisibility_of_element(locator))
+    def element_is_invisible(self, locator, timeout=None):
+        return wait(self.driver, timeout or self.timeout).until(EC.invisibility_of_element(locator))
 
-    def element_is_present(self, locator, timeout=20):
-        return wait(self.driver, timeout=timeout).until(EC.presence_of_element_located(locator))
+    def element_is_present(self, locator, timeout=None):
+        return wait(self.driver, timeout or self.timeout).until(EC.presence_of_element_located(locator))
 
-    def alert_is_visible(self, timeout=20):
-        wait(self.driver, timeout=timeout).until(EC.alert_is_present())
+    def alert_is_visible(self, timeout=None):
+        wait(self.driver, timeout or self.timeout).until(EC.alert_is_present())
 
     def double_click(self, element):
         self.action.double_click(element).perform()

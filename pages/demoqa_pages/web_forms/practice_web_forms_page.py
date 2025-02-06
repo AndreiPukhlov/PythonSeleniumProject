@@ -57,8 +57,24 @@ class PracticeWebFormPage(BasePage):
         element.send_keys(state)
         element.send_keys(Keys.ENTER)
 
+    def close_modal_window(self):
+        self.element_is_visible(self.locator.CLOSE_BUTTON).click()
+
+    def is_modal_window_closed(self):
+        return self.element_is_invisible(self.locator.CLOSE_BUTTON)
+
     def select_city(self, city):
         self.element_is_clickable(self.locator.SELECT_CITY).click()
         element = self.element_is_clickable(self.locator.INPUT_CITY)
         element.send_keys(city)
         element.send_keys(Keys.ENTER)
+
+    def pick_birthday(self, day, month, year):
+        year_locator = ("xpath", f"//*[contains(@class,'year')]/option[@value='{year}']")
+        month_locator = ("xpath", f"//*[contains(@class,'month')]/option[text()='{month}']")
+        day_locator = ("xpath", f"//*[contains(@class, 'day') and not(contains(@class, 'outside'))][text()='{day}']")
+        self.element_is_visible(self.locator.DOB_INPUT).click()
+        self.element_is_visible(year_locator).click()
+        self.element_is_visible(month_locator).click()
+        self.element_is_visible(day_locator).click()
+
