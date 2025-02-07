@@ -6,7 +6,7 @@ from data.urls.demoqa_urls import DemoqaUrls
 from locators.demoqa_locators.elements_locators.web_tables_locators import WebTablesLocators
 from pages.demoqa_pages.demo_qa_homepage import DemoqaHomePage
 from pages.demoqa_pages.demoqa_elements_page import DemoqaElementsPage
-from pages.demoqa_pages.elements.web_tables_page import WebTablesPage
+from pages.demoqa_pages.elements_pages.web_tables_page import WebTablesPage
 
 generator = EmployeeIngoGenerator()
 

@@ -1,3 +1,4 @@
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
@@ -39,6 +40,22 @@ class BasePage:
     def right_click(self, element):
         self.action.context_click(element).perform()
 
+    def click_with_js(self, element):
+        self.driver.execute_script("arguments[0].click();", element)
+
+    def scroll_to_element(self, element):
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center', "
+                                   "inline: 'nearest'});", element)
+
+    def select_by_text(self, locator, txt):
+        Select(self.element_is_visible(locator)).select_by_visible_text(txt)
+
+    def get_element_by_locator(self, locator):
+        return self.element_is_visible(locator)
+
+    def get_window_handles(self):
+        return self.driver.window_handles
+
     @staticmethod
     def get_alert_text(alert):
         alert_text = alert.text
@@ -55,3 +72,7 @@ class BasePage:
     @staticmethod
     def alert_dismiss(alert):
         alert.dismiss()
+
+
+
+

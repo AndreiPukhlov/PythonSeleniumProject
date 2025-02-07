@@ -2,7 +2,7 @@ from selenium.webdriver import Keys
 
 from functions import get_root_path
 from locators.demoqa_locators.web_forms_locators.web_forms_locators import WebFormsLocators
-from pages.base_page import BasePage
+from pages.base_page import BasePage, scroll_to_element
 
 
 class PracticeWebFormPage(BasePage):
@@ -37,9 +37,9 @@ class PracticeWebFormPage(BasePage):
     def submit_form(self):
         self.element_is_visible(self.locator.SUBMIT_BUTTON).click()
 
-    def scroll_to_element(self):
+    def scroll_to_address_field(self):
         element = self.element_is_visible(self.locator.ADDRESS)
-        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element)
+        scroll_to_element(self.driver, element)
 
     def get_info_submitted(self):
         return self.elements_are_visible(self.locator.INFO_RESULT)
