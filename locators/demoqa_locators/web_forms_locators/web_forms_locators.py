@@ -13,9 +13,9 @@ class WebFormsLocators:
     ADDRESS = ("css selector", "#currentAddress")
     SUBJECT = ("css selector", "#subjectsInput")
     SELECT_STATE = ("css selector", "#state")
-    INPUT_STATE = ("css selector", "#react-select-3-input")
+    INPUT_STATE = ("xpath", "//div[@id='state']//input")
     SELECT_CITY = ("css selector", "#city")
-    INPUT_CITY = ("css selector", "#react-select-4-input")
+    INPUT_CITY = ("xpath", "//div[@id='city']//input")
     SUBMIT_BUTTON = ("css selector", "button#submit")
     INFO_RESULT = ("xpath", "//tbody/tr/td")
     UPLOAD_FOLDER_PATH = "data/test_data/demoqa_testdata/upload_demoqa"

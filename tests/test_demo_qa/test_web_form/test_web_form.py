@@ -1,4 +1,4 @@
-import time
+
 from datetime import date
 
 import pytest
@@ -8,7 +8,7 @@ from data.test_data.demoqa_testdata.web_form_test_data import WebFormTestData
 from data.urls.demoqa_urls import DemoqaUrls
 from pages.demoqa_pages.demo_qa_homepage import DemoqaHomePage
 from pages.demoqa_pages.demoqa_web_forms_page import WebFormsPage
-from pages.demoqa_pages.web_forms.practice_web_forms_page import PracticeWebFormPage
+from pages.demoqa_pages.web_forms_pages.practice_web_forms_page import PracticeWebFormPage
 
 
 class TestWebForm:
@@ -40,7 +40,7 @@ class TestWebForm:
         page.choose_gender(gender)
         page.enter_mobile_number(mobile)
         page.pick_birthday(day, month, year)
-        page.scroll_to_element()
+        page.scroll_to_address_field()
         page.enter_subject(gd[5])
         page.check_hobby(hobby)
         page.upload_file(picture)
@@ -85,7 +85,7 @@ class TestWebForm:
         page.enter_lastname(gd[1])
         page.choose_gender(gender)
         page.enter_mobile_number(mobile)
-        page.scroll_to_element()
+        page.scroll_to_address_field()
 
         page.submit_form()
         submitted_info = page.get_info_submitted()
@@ -114,7 +114,7 @@ class TestWebForm:
 
     def test_required_fields_are_colored_in_red(self, driver):
         page = self.open_web_form(driver)
-        page.scroll_to_element()
+        page.scroll_to_address_field()
         page.submit_form()
         # time.sleep(10)
         other_fields_expected_color = 'rgba(73, 80, 87, 1)'

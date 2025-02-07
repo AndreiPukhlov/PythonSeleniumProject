@@ -12,3 +12,7 @@ class DemoqaHomePage(BasePage):
 
     def go_to_forms(self):
         self.element_is_clickable(self.hp_locators.FORMS_BUTTON).click()
+
+    def go_to_widgets(self):
+        self.element_is_clickable(self.hp_locators.WIDGETS_BUTTON).click()
+

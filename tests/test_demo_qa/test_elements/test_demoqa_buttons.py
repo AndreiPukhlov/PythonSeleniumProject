@@ -2,7 +2,7 @@ from data.test_data.demoqa_testdata.elements_testdata.buttons_testdata import Bu
 from data.urls.demoqa_urls import DemoqaUrls
 from locators.demoqa_locators.demoqa_homepage_locators import DemoqaHomePageLocators
 from pages.demoqa_pages.demo_qa_homepage import DemoqaHomePage
-from pages.demoqa_pages.elements.buttons_page import ButtonsPage
+from pages.demoqa_pages.elements_pages.buttons_page import ButtonsPage
 
 
 class TestDemoqaButtons:
