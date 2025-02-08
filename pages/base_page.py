@@ -56,6 +56,10 @@ class BasePage:
     def get_window_handles(self):
         return self.driver.window_handles
 
+    def get_css_property(self, locator, property_name):
+        data = self.element_is_visible(locator)
+        return data.value_of_css_property(property_name)
+
     @staticmethod
     def get_alert_text(alert):
         alert_text = alert.text

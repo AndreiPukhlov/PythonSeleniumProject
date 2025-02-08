@@ -2,7 +2,7 @@ from selenium.webdriver import Keys
 
 from functions import get_root_path
 from locators.demoqa_locators.web_forms_locators.web_forms_locators import WebFormsLocators
-from pages.base_page import BasePage, scroll_to_element
+from pages.base_page import BasePage
 
 
 class PracticeWebFormPage(BasePage):
@@ -39,7 +39,7 @@ class PracticeWebFormPage(BasePage):
 
     def scroll_to_address_field(self):
         element = self.element_is_visible(self.locator.ADDRESS)
-        scroll_to_element(self.driver, element)
+        self.scroll_to_element(element)
 
     def get_info_submitted(self):
         return self.elements_are_visible(self.locator.INFO_RESULT)
@@ -81,12 +81,8 @@ class PracticeWebFormPage(BasePage):
     def get_required_fields_color(self):
         locator = ("xpath", f"//label[text()='Male']")
 
-        first_name_field_color = self.element_is_visible(self.locator.FIRST_NAME).value_of_css_property("color")
-        last_name_field_color = self.element_is_visible(self.locator.LAST_NAME).value_of_css_property("color")
-        gender_field_color = self.element_is_visible(locator).value_of_css_property("color")
-        mobile_field_color = self.element_is_visible(self.locator.MOBILE).value_of_css_property("color")
+        first_name_field_color = self.get_css_property(self.locator.FIRST_NAME, "color")
+        last_name_field_color = self.get_css_property(self.locator.LAST_NAME,"color")
+        gender_field_color = self.get_css_property(locator,"color")
+        mobile_field_color = self.get_css_property(self.locator.MOBILE, "color")
         return first_name_field_color, last_name_field_color, gender_field_color, mobile_field_color
-
-
-
-

@@ -16,10 +16,6 @@ class TestAddWebTable:
     locators = WebTablesLocators()
     test_data = WebTablesTestData()
 
-    def test_data_check(self):
-        data = generator.generate_employee_data()
-        print(data)
-
     def test_add_employee_modal_window_close_with_x_button(self, driver):
         DemoqaHomePage(driver, self.url.base_url).open()
         page = (DemoqaHomePage(driver, ""))
@@ -30,7 +26,6 @@ class TestAddWebTable:
         page.click_add_emp_button()
         assert page.is_open_modal_window()
         page.click_x_button()
-        time.sleep(4)
         assert page.is_not_open_modal_window()
 
     def test_add_employee_window_close_by_click_out_of_the_modal(self, driver):
@@ -49,7 +44,7 @@ class TestAddWebTable:
 
     def test_create_new_employee(self, driver):
         data, l_name, page = self.create_new_employee(driver)
-        time.sleep(0.5)
+        time.sleep(0.5)  # TODO AP: check this test is flaky
         new_employee = page.get_new_employee(l_name)
         actual = new_employee[0].text.split('\n')
         assert actual == data, f"Expected {data} but got {actual}"
@@ -72,7 +67,6 @@ class TestAddWebTable:
 
     def test_edit_new_employee(self, driver):
         data, l_name, page = self.create_new_employee(driver)
-        time.sleep(0.5)
         email = data[3]
         page.get_new_employee(email)
         page.edit_search_result_form(email)
@@ -95,10 +89,8 @@ class TestAddWebTable:
 
     def test_delete_employee(self, driver):
         data, l_name, page = self.create_new_employee(driver)
-        time.sleep(0.5)
         email = data[3]
         page.get_new_employee(email)
         page.delete_search_result_form(email)
         page.clean_search_field()
-        time.sleep(6)
         assert page.is_employee_deleted(email)
