@@ -12,3 +12,10 @@ class ToolTipsPage(BasePage):
 
     def is_tool_tip_visible(self):
         return self.element_is_visible(self.locator.HOVER_ME_BUTTON_TOOL_TIP)
+
+    def get_cursor_value(self):
+        return self.get_css_property(self.locator.HOVER_ME_BUTTON, "cursor")
+
+    def get_button_background_color(self):
+        return self.get_css_property(self.locator.HOVER_ME_BUTTON, "background-color")
+
